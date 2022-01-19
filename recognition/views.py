@@ -27,6 +27,9 @@ from django.shortcuts import render, HttpResponse, redirect
 # Create your views here.
 
 def index(request):
+	return render(request, 'recognition/index.html')
+
+def home(request):
 	return render(request, 'recognition/home.html')
 
 def gen(camera):
@@ -102,8 +105,8 @@ def detectImage(request):
             j = np.argmax(preds)
             proba = preds[j]
             name = le.classes_[j]
-            if proba*100 <40:
-                name = "Unknown"
+            # if proba*100 <40:
+                # name = "Unknown"
             text = "{}: {:.2f}%".format(name, proba * 100)
             y = startY - 10 if startY - 10 > 10 else startY + 10
             cv2.rectangle(frame, (startX, startY), (endX, endY),

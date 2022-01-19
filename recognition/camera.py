@@ -80,8 +80,8 @@ class FaceDetect(object):
 				j = np.argmax(preds)
 				proba = preds[j]
 				name = le.classes_[j]
-				if proba*100 <40:
-					name = "Unknown"
+				# if proba*100 <40:
+				# 	name = "Unknown"
 #Xuất ra bouding box và tên khuôn mặt
 				text = "{}: {:.2f}%".format(name, proba * 100)
 				y = startY - 10 if startY - 10 > 10 else startY + 10
